@@ -5,3 +5,4 @@ INSERT into employee_payroll values ('Vishnu',10000,'2022-10-04'),('Shravanthi',
 SELECT salary FROM employee_payroll
 WHERE name = 'Vishnu'
 select * from employee_payroll
+WHERE Start_Date BETWEEN CAST('2022-01-01'AS DATE) AND GETDATE();
