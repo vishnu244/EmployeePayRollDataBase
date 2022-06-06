@@ -25,3 +25,14 @@ WHERE Gender = 'Female' GROUP BY Gender;
 
 SELECT count(salary) FROM employee_payroll
 WHERE Gender = 'Female' GROUP BY Gender;
+
+
+----UC8 --- Extend by adding PhoneNumber, Address, Department -----------
+
+alter table employee_payroll add phonenumber varchar(50),address varchar(200) not null default 'ABC Colony',department varchar(50);
+
+update employee_payroll set phonenumber='9000000001', department='Production' where name='Vishnu';
+update employee_payroll set phonenumber='9000000002', department='Tester;' where name='Roshni';
+update employee_payroll set phonenumber='9000000003', department='Developer' where name='Shravanthi';
+update employee_payroll set phonenumber='9000000004', department='Production' where name='Krishna';
+update employee_payroll set phonenumber='9000000005', department='Tester' where name='Shiva';
