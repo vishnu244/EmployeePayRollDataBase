@@ -32,7 +32,26 @@ WHERE Gender = 'Female' GROUP BY Gender;
 alter table employee_payroll add phonenumber varchar(50),address varchar(200) not null default 'ABC Colony',department varchar(50);
 
 update employee_payroll set phonenumber='9000000001', department='Production' where name='Vishnu';
-update employee_payroll set phonenumber='9000000002', department='Tester;' where name='Roshni';
+update employee_payroll set phonenumber='9000000002', department='Tester' where name='Roshni';
 update employee_payroll set phonenumber='9000000003', department='Developer' where name='Shravanthi';
 update employee_payroll set phonenumber='9000000004', department='Production' where name='Krishna';
 update employee_payroll set phonenumber='9000000005', department='Tester' where name='Shiva';
+
+
+-----UC9--Extend employee_payroll to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay---
+
+alter table employee_payroll add BasicPay decimal, Deductions decimal, TaxablePay decimal, IncomeTax decimal, NetPay decimal;
+
+update employee_payroll set BasicPay=Salary;
+alter table employee_payroll drop column Salary;
+
+update employee_payroll set Deductions=1000 where department = 'Production';
+update employee_payroll set Deductions=2000 where department = 'Tester';
+update employee_payroll set Deductions=500 where department = 'Developer';
+
+update employee_payroll set IncomeTax=250;
+update employee_payroll set TaxablePay=500;
+
+update employee_payroll set NetPay = (BasicPay-Deductions);
+
+select * from employee_payroll;
