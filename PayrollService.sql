@@ -11,3 +11,17 @@ WHERE Start_Date BETWEEN CAST('2022-01-01'AS DATE) AND GETDATE();
 Alter table employee_payroll add Gender varchar(10) 
 update employee_payroll set Gender = 'male' where name = 'vishnu' or name = 'Shiva'
 update employee_payroll set Gender = 'Female' where name = 'shravanthi' 
+SELECT SUM(salary) FROM employee_payroll
+WHERE Gender = 'Female' GROUP BY Gender;
+
+SELECT Avg(salary) FROM employee_payroll
+WHERE Gender = 'Male' GROUP BY Gender;
+
+SELECT min(salary) FROM employee_payroll
+WHERE Gender = 'Female' GROUP BY Gender;
+
+SELECT max(salary) FROM employee_payroll
+WHERE Gender = 'Female' GROUP BY Gender;
+
+SELECT count(salary) FROM employee_payroll
+WHERE Gender = 'Female' GROUP BY Gender;
