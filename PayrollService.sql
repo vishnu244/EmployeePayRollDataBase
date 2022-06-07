@@ -35,7 +35,7 @@ update employee_payroll set phonenumber='9000000001', department='Production' wh
 update employee_payroll set phonenumber='9000000002', department='Tester' where name='Roshni';
 update employee_payroll set phonenumber='9000000003', department='Developer' where name='Shravanthi';
 update employee_payroll set phonenumber='9000000004', department='Production' where name='Krishna';
-update employee_payroll set phonenumber='9000000005', department='Tester' where name='Shiva';
+update employee_payroll set phonenumber='9000000005, 1234567890', department='Tester' where name='Shiva';
 
 
 -----UC9--Extend employee_payroll to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay---
@@ -55,3 +55,7 @@ update employee_payroll set TaxablePay=500;
 update employee_payroll set NetPay = (BasicPay-Deductions);
 
 select * from employee_payroll;
+
+-------uc_10 Adding New Employee in Sales and Marketing Department-------------------
+INSERT into employee_payroll values ('Terissa','2022-03-04','Female', '1234567890', 'XYZ colony','Sales','25000','1000','500','1500','24000')
+INSERT into employee_payroll values ('Terissa','2022-03-04','Female', '1234567890', 'XYZ colony','Marketing','30000','1000','500','1500','29000')
