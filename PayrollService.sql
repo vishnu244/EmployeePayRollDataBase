@@ -59,3 +59,33 @@ select * from employee_payroll;
 -------uc_10 Adding New Employee in Sales and Marketing Department-------------------
 INSERT into employee_payroll values ('Terissa','2022-03-04','Female', '1234567890', 'XYZ colony','Sales','25000','1000','500','1500','24000')
 INSERT into employee_payroll values ('Terissa','2022-03-04','Female', '1234567890', 'XYZ colony','Marketing','30000','1000','500','1500','29000')
+
+
+-------------UC_11 entities and relationships-------------------
+
+create table Company (compId INT PRIMARY KEY, 
+					  compName varchar(20)  );
+SELECT* from Company
+
+create table employee(empId int PRIMARY KEY,
+					  Name varchar(20),
+					  compId INT REFERENCES Company(compId),
+					  Phone varchar(20),
+					  Address varchar(200),
+					  Gender char  );
+select* from employee
+
+
+create Table payroll(empId INT REFERENCES employee(empId),
+					 BasicPay decimal,
+					 Deduction decimal, 
+					 TaxablePay decimal,
+					 IncomeTax decimal,
+					 NetPay decimal  );
+select* from payroll
+
+
+CREATE TABLE DEPARTMENT(DeptName VARCHAR(10),
+						empId INT REFERENCES employee(empId),
+						deptId int PRIMARY KEY  );
+select* from DEPARTMENT;
